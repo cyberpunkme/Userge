@@ -241,9 +241,9 @@ if userge.has_bot:
             pairs = pairs[current_page*rows:(current_page + 1)*rows] + [
                 [
                     InlineKeyboardButton(
-                        "⏪ Previous", callback_data=f"({cur_pos})prev({current_page})".encode()),
+                        "◀️ Previous", callback_data=f"({cur_pos})prev({current_page})".encode()),
                     InlineKeyboardButton(
-                        "⏩ Next", callback_data=f"({cur_pos})next({current_page})".encode())],
+                        "Next ▶️", callback_data=f"({cur_pos})next({current_page})".encode())],
             ]
         pairs += default_buttons(cur_pos)
         return pairs
@@ -419,12 +419,12 @@ if userge.has_bot:
                 if pm_inline_msg:
                     text = pm_inline_msg.get('data')
                 else:
-                    text = f"Hello, welcome to **{owner.first_name}** Dm.\n\nWhat you want to do ?"
+                    text = f"നമസ്കാരം, **{owner.first_name}**ൻ്റെ DM ലേക്ക് സ്വാഗതം😉.\n\n<b>എന്താണ് താങ്കൾക്ക് വേണ്ടത്😮</b>"
                 buttons = [[
                     InlineKeyboardButton(
-                        "Contact Me", callback_data="pm_contact"),
+                        "എന്നോട് സംസാരിക്കണം🙋😽", callback_data="pm_contact"),
                     InlineKeyboardButton(
-                        "Spam here", callback_data="pm_spam")]]
+                        "വേണമെന്നില്ല👋😈", callback_data="pm_spam")]]
                 results.append(
                     InlineQueryResultArticle(
                         id=uuid4(),
