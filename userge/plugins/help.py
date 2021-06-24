@@ -419,12 +419,12 @@ if userge.has_bot:
                 if pm_inline_msg:
                     text = pm_inline_msg.get('data')
                 else:
-                    text = f"നമസ്കാരം, **{owner.first_name}**ൻ്റെ DM ലേക്ക് സ്വാഗതം😉.\n\n<b>എന്താണ് താങ്കൾക്ക് വേണ്ടത്😮</b>"
+                    text = f"Namaskaram, **{owner.first_name}**😉.\n\n<b>What You Want To Do😮</b>"
                 buttons = [[
                     InlineKeyboardButton(
-                        "എന്നോട് സംസാരിക്കണം🙋😽", callback_data="pm_contact"),
+                        "Contact Me🙋", callback_data="pm_contact"),
                     InlineKeyboardButton(
-                        "വേണമെന്നില്ല👋😈", callback_data="pm_spam")]]
+                        "Block You👋", callback_data="pm_spam")]]
                 results.append(
                     InlineQueryResultArticle(
                         id=uuid4(),
