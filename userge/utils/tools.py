@@ -8,13 +8,13 @@
 #
 # All rights reserved.
 
+import asyncio
 import re
 import shlex
-import asyncio
 from os.path import basename, join, exists
-from emoji import get_emoji_regexp
 from typing import Tuple, List, Optional, Iterator, Union
 
+from emoji import get_emoji_regexp
 from html_telegraph_poster import TelegraphPoster
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
@@ -189,3 +189,18 @@ def parse_buttons(markdown_note: str) -> Tuple[str, Optional[InlineKeyboardMarku
         else:
             keyb.append([InlineKeyboardButton(btn[0], url=btn[1])])
     return note_data.strip(), InlineKeyboardMarkup(keyb) if keyb else None
+
+
+def is_command(cmd: str) -> bool:
+    commands = userge.userge.manager.enabled_commands
+    key = userge.Config.CMD_TRIGGER + cmd
+    _key = userge.Config.SUDO_TRIGGER + cmd
+
+    is_cmd = False
+    if cmd in commands:
+        is_cmd = True
+    elif key in commands:
+        is_cmd = True
+    elif _key in commands:
+        is_cmd = True
+    return is_cmd
